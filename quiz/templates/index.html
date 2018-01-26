@@ -6,7 +6,7 @@
 	{% for country in all_countries %}
 		<li>
 			{{ country.country_name }}
-			<img src="{{ country.flag_image.url }}" alt="Flag" />
+			{{ country.flag_image_tag }}
 		</li>
 	{% endfor %}
 </ul>
