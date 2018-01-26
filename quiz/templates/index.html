@@ -1,0 +1,12 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}" />
+
+<ul>
+	{% for country in all_countries %}
+		<li>
+			{{ country.country_name }}
+			<img src="{{ country.flag_image.url }}" alt="Flag" />
+		</li>
+	{% endfor %}
+</ul>
