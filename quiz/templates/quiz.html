@@ -1,0 +1,13 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}" />
+
+<h3>Question {{ question_num }} of {{ question_count }}</h3>
+<h1>Which is the flag of {{ question.country.country_name }}</h1>
+<div class="answer_container">
+	{% for answer in question.answers %}
+		<div class="answer">
+			<a href
+		</div>
+	{% endfor %}
+</div>

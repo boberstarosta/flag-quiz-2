@@ -1,0 +1,20 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}" />
+
+<ul>
+	<table>
+		<tr>
+			<th>Country name</th>
+			<th>Population</th>
+			<th>Flag</th>
+		</tr>
+	{% for country in all_countries %}
+		<tr>
+			<td>{{ country.country_name }}</td>
+			<td>{{ country.population }}</td>
+			<td>{{ country.flag_image_tag }}</td>
+		</tr>
+	{% endfor %}
+	</table>
+</ul>

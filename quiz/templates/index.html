@@ -2,19 +2,25 @@
 
 <link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}" />
 
-<ul>
-	<table>
-		<tr>
-			<th>Country name</th>
-			<th>Population</th>
-			<th>Flag</th>
-		</tr>
-	{% for country in all_countries %}
-		<tr>
-			<td>{{ country.country_name }}</td>
-			<td>{{ country.population }}</td>
-			<td>{{ country.flag_image_tag }}</td>
-		</tr>
-	{% endfor %}
-	</table>
-</ul>
+<h1>Welcome to flag quiz!</h1>
+<h3>Test your knowledge of world's country flags!</h3>
+<h2>Pick the difficulty:</h2>
+<a href="{% url 'quiz:start' country_count=50 %}">
+	<h3>Easy</h3>
+	<p>
+		Include flags of <strong>50</strong> most populous countries in the world.
+	</p>
+</a>
+<a href="{% url 'quiz:start' country_count=100 %}">
+	<h3>Medium</h3>
+	<p>
+		Include flags of <strong>100</strong> most populous countries in the world.
+	</p>
+</a>
+<a href="{% url 'quiz:start' country_count=0 %}">
+	<h3>Hard</h3>
+	<p>
+		Include flags of <strong>all</strong> countries in the world.
+	</p>
+</a>
+
