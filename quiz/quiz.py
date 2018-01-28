@@ -4,13 +4,14 @@ from .models import Country
 
 
 class Question:
-	def __init__(self, country, all_countries, fake_count):
+	def __init__(self, country, all_countries, fake_count, mode="flags"):
 		self.country = country
 		all_fakes = [c for c in all_countries if c != country]
 		fakes = random.sample(all_fakes, fake_count)
 		self.answers = [country] + fakes
 		random.shuffle(self.answers)
 		self.answer = None
+		self.mode = mode
 
 
 class Quiz:
@@ -37,7 +38,8 @@ class Quiz:
 			unused_countries = [c for c in all_countries if c not in used_countries]
 			country = random.choice(unused_countries)
 			used_countries.append(country)
-			question = Question(country, all_countries, fake_count)
+			mode = "flags" if i < question_count // 2 else "names"
+			question = Question(country, all_countries, fake_count, mode=mode)
 			result.append(question)
 		
 		return result
