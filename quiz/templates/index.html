@@ -2,26 +2,18 @@
 
 {% block content %}
 
-<h1>Welcome to flag quiz!</h1>
-<h3>Test your knowledge of world's country flags.</h3>
-<h2>Difficulty:</h2>
-<a href="{% url 'quiz:start' country_count=50 %}">
-	<h3>Easy</h3>
-	<p>
-		Includes <strong>50</strong> most populous countries.
-	</p>
-</a>
-<a href="{% url 'quiz:start' country_count=100 %}">
-	<h3>Medium</h3>
-	<p>
-		Includes <strong>100</strong> most populous countries.
-	</p>
-</a>
-<a href="{% url 'quiz:start' country_count=0 %}">
-	<h3>Hard</h3>
-	<p>
-		Includes <strong>ALL</strong> countries.
-	</p>
-</a>
+<div class="index_page">
+	<h1>Welcome to flag quiz!</h1>
+	<h3>Test your knowledge of world's country flags.</h3>
+	<h2>Difficulty:</h2>
+	{% for level in levels %}
+		<a href="{% url 'quiz:start' level_name=level.name %}">
+			<h3>{{ level.name }}</h3>
+			<p>
+				Includes {{ level.desc }} countries.
+			</p>
+		</a>
+	{% endfor %}
+</div>
 
 {% endblock %}

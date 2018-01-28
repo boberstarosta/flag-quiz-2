@@ -14,17 +14,29 @@ class Question:
 		self.mode = mode
 
 
+class Difficulty:
+	def __init__(self, name, country_count, desc):
+		self.name = name
+		self.country_count = country_count
+		self.desc = desc
+		
+
 class Quiz:
 	instances = {}
 	last_id = random.randrange(1000000)
-		
-	def __init__(self, country_count=50, question_count=30, fake_count=4):
+	
+	levels = {
+			"Easy": Difficulty("Easy", 50, "50 most populous"),
+			"Medium": Difficulty("Medium", 100, "100 most populous"),
+			"Hard": Difficulty("Hard", None, "ALL"),
+		}
+	
+	def __init__(self, level, question_count=30, fake_count=4):
 		Quiz.last_id += 1
 		self.id = Quiz.last_id
 		Quiz.instances[self.id] = self
 		
-		if country_count == 0:
-			country_count = None
+		country_count = level.country_count
 		self.questions = self.generate_questions(country_count, question_count, fake_count)
 		self.current_question_index = 0
 	
@@ -85,6 +97,7 @@ class Quiz:
 			return "Not bad."
 		else:
 			return "You can do better."
+	
 
 
 
