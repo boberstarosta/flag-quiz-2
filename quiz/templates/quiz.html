@@ -17,8 +17,8 @@ Progress: <progress value="{{ quiz.current_question_index }}" max="{{ quiz.quest
 	</div>
 {% elif question.mode == "names" %}
 	<p>
-		<img src="{{ question.country.flag_image.url }}" /><br />
-		Which country's flag is this?
+		Which country's flag is this?<br />
+		<img class="question_flag_img" src="{{ question.country.flag_image.url }}" /><br />
 	</p>
 	<div class="quiz_answer_container">
 		{% for answer_country in question.answers %}
