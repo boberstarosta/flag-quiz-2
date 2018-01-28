@@ -3,7 +3,7 @@
 {% block content %}
 
 <h1>Score: {{ quiz.good_answer_count }}/{{ quiz.question_count }}</h1>
-
+<h2>{{ quiz.results_message }}</h2>
 <p><a href="{% url 'quiz:index' %}">Play again</a></p>
 
 {% if quiz.wrong_answer_question_list %}

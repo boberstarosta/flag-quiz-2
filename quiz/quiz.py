@@ -68,6 +68,21 @@ class Quiz:
 	
 	def has_all_answers(self):
 		return None not in [q.answer for q in self.questions]
+	
+	def results_message(self):
+		ratio = self.good_answer_count() / self.question_count()
+		if ratio == 1.0:
+			return "Perfect!"
+		elif ratio >= 0.90:
+			return "Excellent!"
+		elif ratio >= 0.80:
+			return "Very good."
+		elif ratio >= 0.70:
+			return "Good."
+		elif ratio >= 0.60:
+			return "Not bad."
+		else:
+			return "You can do better."
 
 
 
