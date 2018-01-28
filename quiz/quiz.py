@@ -54,9 +54,20 @@ class Quiz:
 		question.answer = country
 		self.current_question_index += 1
 	
-	def good_answer_count(self):
-		return len([q for q in self.questions if q.answer == q.country])
+	def question_count(self):
+		return len(self.questions)
 	
+	def good_answer_question_list(self):
+		return [q for q in self.questions if q.answer == q.country]
+	
+	def wrong_answer_question_list(self):
+		return [q for q in self.questions if q.answer != q.country]
+		
+	def good_answer_count(self):
+		return len(self.good_answer_question_list())
+	
+	def has_all_answers(self):
+		return None not in [q.answer for q in self.questions]
 
 
 

@@ -1,6 +1,6 @@
-{% load static %}
+{% extends "base.html" %}
 
-<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}" />
+{% block content %}
 
 <ul>
 	<table>
@@ -18,3 +18,5 @@
 	{% endfor %}
 	</table>
 </ul>
+
+{% endblock %}

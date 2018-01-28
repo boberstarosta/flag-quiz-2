@@ -29,15 +29,30 @@ def quiz(request, quiz_id):
 		return HttpResponseRedirect(reverse("quiz:index"))
 	question = quiz.get_current_question()
 	context = {
+		"quiz_id": quiz.id,
 		"question_num": quiz.current_question_index + 1,
-		"question_count": len(quiz.questions),
+		"question_count": quiz.question_count(),
 		"question": question,
 	}
 	return render(request, "quiz.html", context)
 
 
 def answer(request, quiz_id, answer_country_id):
-	quiz = Quiz.instances[quiz_id]
+	try:
+		quiz = Quiz.instances[quiz_id]
+	except KeyError:
+		return HttpResponseRedirect(reverse("quiz:index"))
 	quiz.answer_current_question(answer_country_id)
-	return HttpResponseRedirect(reverse("quiz:quiz", args=[quiz_id]))
+	if quiz.has_all_answers():
+		return HttpResponseRedirect(reverse("quiz:results", args=[quiz_id]))
+	else:
+		return HttpResponseRedirect(reverse("quiz:quiz", args=[quiz_id]))
+	
+def results(request, quiz_id):
+	try:
+		quiz = Quiz.instances[quiz_id]
+	except KeyError:
+		return HttpResponseRedirect(reverse("quiz:index"))
+	context = {"quiz": quiz}
+	return render(request, "results.html", context)
 	
