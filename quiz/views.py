@@ -30,8 +30,7 @@ def quiz(request, quiz_id):
 	question = quiz.get_current_question()
 	context = {
 		"quiz_id": quiz.id,
-		"question_num": quiz.current_question_index + 1,
-		"question_count": quiz.question_count(),
+		"quiz": quiz,
 		"question": question,
 	}
 	return render(request, "quiz.html", context)

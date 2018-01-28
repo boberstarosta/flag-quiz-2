@@ -2,7 +2,9 @@
 
 {% block content %}
 
-<h3>Question {{ question_num }} of {{ question_count }}</h3>
+Progress: <progress value="{{ quiz.current_question_index }}" max="{{ quiz.question_count }}"></progress>
+{{ quiz.current_question_index }} / {{ quiz.question_count }}
+
 {% if question.mode == "flags" %}
 	<p>Pick the flag of</p>
 	<h1>{{ question.country.country_name }}</h1>
