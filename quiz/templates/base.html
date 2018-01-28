@@ -3,11 +3,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}?v=0.6" />
     <title>{% block title %}Flag quiz{% endblock %}</title>
 </head>
 
 <body>
+	<div class="navbar">
+		<span class="navtitle">Flag quiz</span>
+		<a href={% url 'quiz:index' %}>Start flag quiz</a>
+		<span class="navnote">(c)Bober 2018</span>
+	</div>
     <div id="content">
         {% block content %}{% endblock %}
     </div>

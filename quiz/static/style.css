@@ -3,6 +3,47 @@ body {
 	background-color: #dedede;
 }
 
+.navbar
+{
+	background-color: black;
+	padding: 0px 5px;
+	text-align: left;
+	margin-bottom: 40px;
+}
+
+.navtitle
+{
+    background-color: gray;
+    color: black;
+    padding: 14px 25px;
+    text-align: left; 
+    text-decoration: none;
+	font-size: 20px;
+	font-weight: bold;
+    display: inline-block;
+}
+
+.navbar a:link, a:visited
+{
+    background-color: black;
+    color: white;
+    padding: 14px 25px;
+    text-align: center; 
+    text-decoration: none;
+    display: inline-block;
+}
+
+.navbar a:hover, a:active
+{
+	background-color: grey;
+}
+
+.navnote:
+{
+	font-size: small;
+	color: white;
+}
+
 .flag_img {
 	height: 100px;
 	max-width: 192px;
