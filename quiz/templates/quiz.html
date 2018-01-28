@@ -7,7 +7,7 @@
 <div class="quiz_answer_container">
 	{% for answer_country in question.answers %}
 		<a class="quiz_answer" href="{% url 'quiz:answer' quiz_id=quiz_id answer_country_id=answer_country.id %}">
-			<img src="{{ answer_country.flag_image.url }}" />
+			<img class="flag_img" src="{{ answer_country.flag_image.url }}" />
 		</a>
 	{% endfor %}
 </div>

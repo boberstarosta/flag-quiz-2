@@ -3,6 +3,11 @@ body {
 	background-color: #dedede;
 }
 
+.flag_img {
+	height: 100px;
+	max-width: 192px;
+}
+
 .quiz_answer {
 	display: inline-block;
 	width: 200px;

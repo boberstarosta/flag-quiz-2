@@ -11,11 +11,11 @@
 	{% for question in quiz.wrong_answer_question_list %}
 		<div class="country_flag_box">
 			{{ question.country.country_name }}<br/>
-			<img src="{{ question.country.flag_image.url }}" /><br />
+			<img class="flag_img" src="{{ question.country.flag_image.url }}" /><br />
 			<hr>
-			You picked<br />
+			You picked the flag of<br />
 			{{ question.answer.country_name }}
-			<img src="{{ question.answer.flag_image.url }}" /><br />
+			<img class="flag_img" src="{{ question.answer.flag_image.url }}" /><br />
 		</div>
 	{% endfor %}
 {% endif %}
@@ -24,7 +24,7 @@
 	<h2>Good answers:</h2>
 	{% for question in quiz.good_answer_question_list %}
 		<div class="country_flag_box">
-			<img src="{{ question.country.flag_image.url }}" /><br />
+			<img class="flag_img" src="{{ question.country.flag_image.url }}" /><br />
 			{{ question.country.country_name }}
 		</div>
 	{% endfor %}
