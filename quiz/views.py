@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.urls import reverse
@@ -5,6 +6,10 @@ from django.urls import reverse
 from .models import Country
 from .quiz import Quiz
 
+
+@login_required
+def home(request):
+	return render(request, "index.html", {"levels": Quiz.levels.values()})
 
 def index(request):
 	levels = Quiz.levels.values()
