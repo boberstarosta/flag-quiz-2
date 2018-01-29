@@ -24,3 +24,7 @@ urlpatterns = [
     url(r'^oauth/', include('social_django.urls', namespace='social')),
 ] +	static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
+LOGIN_URL = 'login'
+LOGOUT_URL = 'logout'
+LOGIN_REDIRECT_URL = 'index'
+
