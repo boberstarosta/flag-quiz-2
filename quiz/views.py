@@ -7,7 +7,7 @@ from .quiz import Quiz
 
 
 def index(request):
-	levels = Quiz.levels.values()
+	levels = Quiz.sorted_levels
 	return render(request, "index.html", {"levels": levels})
 	
 	

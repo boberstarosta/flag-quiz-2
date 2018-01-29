@@ -30,6 +30,7 @@ class Quiz:
 			"Medium": Difficulty("Medium", 100, "100 most populous"),
 			"Hard": Difficulty("Hard", None, "ALL"),
 		}
+	sorted_levels = [levels["Easy"], levels["Medium"], levels["Hard"]]
 	
 	def __init__(self, level, question_count=30, fake_count=4):
 		Quiz.last_id += 1
