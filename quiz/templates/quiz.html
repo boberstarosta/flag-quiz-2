@@ -2,14 +2,37 @@
 
 {% block content %}
 
-<h3>Question {{ question_num }} of {{ question_count }}</h3>
-<h1>{{ question.country.country_name }}</h1>
-<div class="quiz_answer_container">
-	{% for answer_country in question.answers %}
-		<a class="quiz_answer" href="{% url 'quiz:answer' quiz_id=quiz_id answer_country_id=answer_country.id %}">
-			<img src="{{ answer_country.flag_image.url }}" />
-		</a>
-	{% endfor %}
+<div class="container">
+	Level: {{ quiz.level.name }}<br />
+	Progress: <progress value="{{ quiz.current_question_index }}" max="{{ quiz.question_count }}"></progress>
+	{{ quiz.current_question_index }} / {{ quiz.question_count }}
 </div>
+
+<div class="container">
+	{% if question.mode == "flags" %}
+		<p>Pick the flag of</p>
+		<h1>{{ question.country.country_name }}</h1>
+		<div class="container">
+			{% for answer_country in question.answers %}
+				<a class="quiz_answer" href="{% url 'quiz:answer' quiz_id=quiz_id answer_country_id=answer_country.id %}">
+					<img class="flag_img" src="{{ answer_country.flag_image.url }}" />
+				</a>
+			{% endfor %}
+		</div>
+	{% elif question.mode == "names" %}
+		<p>
+			Which country's flag is this?<br />
+			<img class="question_flag_img" src="{{ question.country.flag_image.url }}" /><br />
+		</p>
+		<div class="quiz_answer_container">
+			{% for answer_country in question.answers %}
+				<a class="quiz_answer" href="{% url 'quiz:answer' quiz_id=quiz_id answer_country_id=answer_country.id %}">
+					{{ answer_country.country_name }}
+				</a>
+			{% endfor %}
+		</div>
+	{% endif %}
+</div>
+
 
 {% endblock %}

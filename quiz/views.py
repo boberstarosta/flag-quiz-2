@@ -7,7 +7,7 @@ from .quiz import Quiz
 
 
 def index(request):
-	levels = [50, 100, None]
+	levels = Quiz.levels.values()
 	return render(request, "index.html", {"levels": levels})
 	
 	
@@ -17,8 +17,12 @@ def list_(request):
 	return render(request, "list.html", context)
 
 
-def start(request, country_count=None):
-	quiz = Quiz(country_count = country_count)
+def start(request, level_name=None):
+	try:
+		level = Quiz.levels[level_name]
+	except KeyError:
+		return HttpResponseRedirect(reverse("quiz:index"))
+	quiz = Quiz(level)
 	return HttpResponseRedirect(reverse("quiz:quiz", args=[quiz.id]))
 
 
@@ -30,8 +34,7 @@ def quiz(request, quiz_id):
 	question = quiz.get_current_question()
 	context = {
 		"quiz_id": quiz.id,
-		"question_num": quiz.current_question_index + 1,
-		"question_count": quiz.question_count(),
+		"quiz": quiz,
 		"question": question,
 	}
 	return render(request, "quiz.html", context)

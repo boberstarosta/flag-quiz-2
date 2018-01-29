@@ -2,20 +2,30 @@
 
 {% block content %}
 
+<div class="container">Level: {{ quiz.level.name }}</div>
 <h1>Score: {{ quiz.good_answer_count }}/{{ quiz.question_count }}</h1>
 <h2>{{ quiz.results_message }}</h2>
-<p><a href="{% url 'quiz:index' %}">Play again</a></p>
+<a class="play_again" href="{% url 'quiz:index' %}">Play again</a></p>
 
 {% if quiz.wrong_answer_question_list %}
 	<h2>Wrong answers:</h2>
 	{% for question in quiz.wrong_answer_question_list %}
 		<div class="country_flag_box">
-			{{ question.country.country_name }}<br/>
-			<img src="{{ question.country.flag_image.url }}" /><br />
-			<hr>
-			You picked<br />
-			{{ question.answer.country_name }}
-			<img src="{{ question.answer.flag_image.url }}" /><br />
+			{% if question.mode == "flags" %}
+				{{ question.country.country_name }}<br/>
+				<img class="flag_img" src="{{ question.country.flag_image.url }}" /><br />
+				<hr>
+				You picked the flag of<br />
+				{{ question.answer.country_name }}<br />
+				<img class="flag_img" src="{{ question.answer.flag_image.url }}" /><br />
+			{% elif question.mode == "names" %}
+				{{ question.country.country_name }}<br />
+				<img class="flag_img" src="{{ question.country.flag_image.url }}" /><br />
+				<hr>
+				You picked<br />
+				{{ question.answer.country_name }}<br />
+				<img class="flag_img" src="{{ question.answer.flag_image.url }}" /><br />
+			{% endif %}
 		</div>
 	{% endfor %}
 {% endif %}
@@ -24,7 +34,7 @@
 	<h2>Good answers:</h2>
 	{% for question in quiz.good_answer_question_list %}
 		<div class="country_flag_box">
-			<img src="{{ question.country.flag_image.url }}" /><br />
+			<img class="flag_img" src="{{ question.country.flag_image.url }}" /><br />
 			{{ question.country.country_name }}
 		</div>
 	{% endfor %}

@@ -3,37 +3,92 @@ body {
 	background-color: #dedede;
 }
 
+.navbar {
+	background-color: black;
+	padding: 0px 0px;
+	text-align: left;
+	margin-left: 0;
+	margin-right: 0;
+	margin-top: 0;
+	margin-bottom: 40px;
+}
+
+.navbar a:link, a:visited {
+    display: inline-block;
+    background-color: black;
+    color: white;
+    padding: 14px 25px;
+	margin: 0px 0px;
+    text-align: center; 
+    text-decoration: none;
+}
+
+.navbar a:hover, a:active {
+	background-color: grey;
+}
+
+.navnote {
+	font-size: small;
+	color: grey;
+}
+
+#content {
+	padding: 1% 10%;
+}
+
+.level_link {
+	display: inline-block;
+	width: 30%;
+	color: white;
+	background-color: black;
+	padding: 8px 4px;
+	text-align: center;
+}
+
+.level_link:hover {
+	background-color: grey;
+}
+
+.level_name {
+	font-size: 2em;
+}
+
+.level_desc {
+	font-size: 1em;
+	text-align: center:
+}
+
+.flag_img {
+	height: 100px;
+	max-width: 192px;
+}
+
 .quiz_answer {
 	display: inline-block;
 	width: 200px;
-	margin-bottom: 10px;
+	margin: 6px 3px;
 	padding: 5px;
 	background-color: #cccccc;
 	border: 1px solid black;
-	font-size: large;
+	font-size: 1.5em;
 	text-decoration: none;
 	color: black;
 	text-align: center;
 }
 
+.quiz_answer:visited {
+	background-color: #cccccc;
+	color: black;
+}
+
 .quiz_answer:hover {
 	background-color: #aaaaaa;
-	font-size: large;
-	text-decoration: none;
-	color: black;
 }
 
 .quiz_answer:active {
+	background-color: #cccccc;
+	color: black;
 	transform: scale(0.9);
-	font-size: large;
-	text-decoration: none;
-	color: black;
-}
-
-.quiz_answer:link, .quiz_answer:visited {
-	font-size: large;
-	text-decoration: none;
-	color: black;
 }
 
 .country_flag_box {
@@ -47,4 +102,17 @@ body {
 	text-decoration: none;
 	color: black;
 	text-align: center;
+}
+
+.play_again:link, .play_again:visited {
+	background-color: #ccccff;
+	border: 1px solid black;
+	font-size: 1.5em;
+	text-decoration: none;
+	color: black;
+	padding: 8px 8px;
+}
+
+.play_again:hover {
+	background-color: #aaaaff;
 }
