@@ -2,6 +2,7 @@
 
 {% block content %}
 
+<div class="container">Level: {{ quiz.level.name }}</div>
 <h1>Score: {{ quiz.good_answer_count }}/{{ quiz.question_count }}</h1>
 <h2>{{ quiz.results_message }}</h2>
 <a class="play_again" href="{% url 'quiz:index' %}">Play again</a></p>

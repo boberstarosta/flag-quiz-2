@@ -3,6 +3,7 @@
 {% block content %}
 
 <div class="container">
+	Level: {{ quiz.level.name }}<br />
 	Progress: <progress value="{{ quiz.current_question_index }}" max="{{ quiz.question_count }}"></progress>
 	{{ quiz.current_question_index }} / {{ quiz.question_count }}
 </div>

@@ -36,6 +36,7 @@ class Quiz:
 		self.id = Quiz.last_id
 		Quiz.instances[self.id] = self
 		
+		self.level = level
 		country_count = level.country_count
 		self.questions = self.generate_questions(country_count, question_count, fake_count)
 		self.current_question_index = 0
