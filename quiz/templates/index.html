@@ -5,15 +5,21 @@
 <div class="index_page">
 	<h1>Welcome to flag quiz!</h1>
 	<h3>Test your knowledge of world's country flags.</h3>
-	<h2>Difficulty:</h2>
-	{% for level in levels %}
-		<a href="{% url 'quiz:start' level_name=level.name %}">
-			<h3>{{ level.name }}</h3>
-			<p>
-				Includes {{ level.desc }} countries.
-			</p>
-		</a>
-	{% endfor %}
+	<div class="level_pick_area">
+		<h2>Difficulty:</h2>
+		{% for level in levels %}
+			<a href="{% url 'quiz:start' level_name=level.name %}">
+				<div class="level_link">
+						<div class="level_name">
+							{{ level.name }}
+						</div>
+						<div class="level_desc">
+							Includes {{ level.desc }} countries.
+						</div>
+				</div>
+			</a>
+		{% endfor %}
+	</div>
 </div>
 
 {% endblock %}

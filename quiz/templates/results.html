@@ -4,7 +4,7 @@
 
 <h1>Score: {{ quiz.good_answer_count }}/{{ quiz.question_count }}</h1>
 <h2>{{ quiz.results_message }}</h2>
-<p><a href="{% url 'quiz:index' %}">Play again</a></p>
+<a class="play_again" href="{% url 'quiz:index' %}">Play again</a></p>
 
 {% if quiz.wrong_answer_question_list %}
 	<h2>Wrong answers:</h2>
