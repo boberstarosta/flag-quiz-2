@@ -7,6 +7,9 @@ from .models import Country
 from .quiz import Quiz
 
 
+def login(request):
+	return render(request, "registration/login.html", {})
+
 @login_required
 def home(request):
 	return render(request, "index.html", {"levels": Quiz.levels.values()})
