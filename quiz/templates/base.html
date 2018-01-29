@@ -10,7 +10,13 @@
 <body>
 	<div class="navbar">
 		<a href={% url 'quiz:index' %}>Flag quiz</a>
-		<span class="navnote">(c)Bober 2018</span>
+		{% if user.is_authenticated %}
+			<span class="navnote">Logged in as {{ user.username }}</span>
+			<a href="{% url 'logout' %}">logout</a>
+		{% else %}
+			<span class="navnote">Not logged in</span>
+			<a href="{% url 'login' %}">login</a>
+		{% endif %}
 	</div>
     <div id="content">
         {% block content %}{% endblock %}
